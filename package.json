@@ -1,0 +1,132 @@
+{
+  "name": "@ascenda-hotel/source",
+  "version": "0.0.0",
+  "license": "MIT",
+  "author": "Elias Vinh",
+  "homepage": "https://github.com/ascenda-hotel",
+  "description": "Ascenda Hotel Currencies & Price Competitiveness",
+  "directories": {
+    "src": "src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ascenda-hotel.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ascenda-hotel/issues",
+    "email": "anlalayker@gmail.com"
+  },
+  "keywords": [
+    "ascenda",
+    "ascenda-hotel",
+    "elias-vinh"
+  ],
+  "scripts": {
+    "start": "nx serve",
+    "prepare": "husky"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=8"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "tabWidth": 2,
+    "htmlWhitespaceSensitivity": "ignore",
+    "useTabs": false,
+    "plugins": [
+      "prettier-plugin-organize-imports",
+      "prettier-plugin-tailwindcss"
+    ],
+    "semi": true,
+    "bracketSpacing": true,
+    "arrowParens": "avoid",
+    "trailingComma": "es5",
+    "bracketSameLine": true,
+    "printWidth": 80
+  },
+  "lint-staged": {
+    "*.{js,json,scss,css,html,md,ts}": [
+      "prettier --write"
+    ],
+    "*.{js,html,ts}": [
+      "eslint --fix"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "packageManager": "pnpm@10.3.0",
+  "dependencies": {
+    "@angular/animations": "~19.1.0",
+    "@angular/cdk": "^19.1.4",
+    "@angular/common": "~19.1.0",
+    "@angular/compiler": "~19.1.0",
+    "@angular/core": "~19.1.0",
+    "@angular/forms": "~19.1.0",
+    "@angular/platform-browser": "~19.1.0",
+    "@angular/platform-browser-dynamic": "~19.1.0",
+    "@angular/router": "~19.1.0",
+    "@fontsource/work-sans": "latest",
+    "@sao-components/core": "latest",
+    "@sao-icons/core": "latest",
+    "@sao-icons/types": "latest",
+    "@sao-palette/core": "latest",
+    "@sao-typography/core": "latest",
+    "rxjs": "~7.8.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~19.1.0",
+    "@angular-devkit/core": "~19.1.0",
+    "@angular-devkit/schematics": "~19.1.0",
+    "@angular/cli": "~19.1.0",
+    "@angular/compiler-cli": "~19.1.0",
+    "@angular/language-service": "~19.1.0",
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
+    "@eslint/js": "^9.8.0",
+    "@nx/angular": "20.4.5",
+    "@nx/eslint": "20.4.5",
+    "@nx/eslint-plugin": "20.4.5",
+    "@nx/jest": "20.4.5",
+    "@nx/js": "20.4.5",
+    "@nx/web": "20.4.5",
+    "@nx/workspace": "20.4.5",
+    "@schematics/angular": "~19.1.0",
+    "@swc-node/register": "~1.9.1",
+    "@swc/core": "~1.5.7",
+    "@swc/helpers": "~0.5.11",
+    "@types/jest": "^29.5.12",
+    "@types/node": "18.16.9",
+    "@typescript-eslint/eslint-plugin": "^8.24.1",
+    "@typescript-eslint/parser": "^8.24.1",
+    "@typescript-eslint/utils": "^8.19.0",
+    "angular-eslint": "^19.0.2",
+    "autoprefixer": "^10.4.0",
+    "eslint": "^9.8.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "husky": "^9.1.7",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jest-preset-angular": "~14.4.0",
+    "jsonc-eslint-parser": "^2.4.0",
+    "lint-staged": "^15.4.3",
+    "nx": "20.4.5",
+    "postcss": "^8.4.5",
+    "prettier": "^3.5.1",
+    "prettier-eslint": "^16.3.0",
+    "prettier-plugin-organize-imports": "^4.1.0",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "tailwindcss": "^3.0.2",
+    "ts-jest": "^29.1.0",
+    "ts-node": "10.9.1",
+    "tslib": "^2.3.0",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.19.0"
+  }
+}
