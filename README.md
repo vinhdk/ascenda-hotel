@@ -1,81 +1,153 @@
-# AscendaHotel
+<p style="text-align: center;">
+  <img src="./public/favicon.svg" alt="Ascenda Logo" width="150">
+</p>
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+# Ascenda Hotel Currencies & Price Competitiveness
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+A modern **Angular 19** application designed to analyze and compare hotel prices across different currencies. Built with **standalone components, signals, and Jest for testing**, this project ensures high performance and scalability.
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/angular-standalone-tutorial?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+## 📌 Features
 
-## Finish your CI setup
+- ✅ **Currency Comparison** – Compare hotel prices across multiple currencies.
+- ✅ **Price Analysis** – Get insights into price competitiveness with interactive visualizations.
+- ✅ **Fully Tested** – Ensures reliability with **Jest** unit tests.
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/7by7brw7S0)
+---
 
-## Run tasks
+## 🚀 Getting Started
 
-To run the dev server for your app, use:
+Follow these steps to set up the project on your local machine.
+
+---
+
+## ⚡ Prerequisites
+
+Ensure you have the following installed:
+
+- **Node.js** (version 20 or later) – [Download Here](https://nodejs.org/) or use **NVM**
+- **pnpm** (version 8 or later) – Install via:
+  ```sh
+  brew install pnpm  # macOS
+  npm install -g pnpm # Windows/Linux
+  ```
+
+---
+
+## 🔐 Configuring SSH & GPG for Secure Access
+
+This repository **requires SSH for cloning** and **signed commits using GPG**.
+
+- **Set up SSH**: Follow the official [GitHub SSH Guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
+- **Set up GPG for signed commits**: Follow the [GitHub GPG Guide](https://docs.github.com/en/authentication/managing-commit-signature-verification)
+
+---
+
+## 🛠️ Setup
+
+1. **Clone the Repository using SSH**
+
+   ```sh
+   git clone git@github.com:vinhdk/ascenda-hotel.git
+   cd ascenda-hotel
+   ```
+
+2. **Install Dependencies**
+
+   ```sh
+   pnpm install
+   ```
+
+3. **Set Up Environment Variables** (if needed)  
+   Create a `.env` file in the root directory and configure required API keys and settings.
+
+---
+
+## 🎯 Running the Project
+
+### 🔥 Development Mode
 
 ```sh
-npx nx serve ascenda-hotel
+pnpm start
 ```
 
-To create a production bundle:
+This will start a local dev server at `http://localhost:4200/`.
+
+### 🏗️ Build for Production
 
 ```sh
-npx nx build ascenda-hotel
+pnpm build
 ```
 
-To see all available targets to run for a project, run:
+The production-ready files will be available in the [Browser](./dist/ascenda-hotel/browser) folder.
+
+### 🧪 Running Tests
 
 ```sh
-npx nx show project ascenda-hotel
+pnpm test
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+Runs unit tests using **Jest**.
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+---
 
-## Add new projects
+## ⚙️ Tooling & Conventions
 
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
+We are using the following tools and configurations to ensure code quality and maintainability:
 
-Use the plugin's generator to create new projects.
+- **pnpm** (version 8+) – Efficient package manager
+- **Node.js** (version 20+) – Runtime environment
+- **Prettier** – Code formatting
+- **ESLint** – Linting for consistent code style
+- **Husky** – Pre-commit and commit-msg hooks
+- **Commitlint** – Enforces commit message conventions
+- **Nx** – Monorepo management
+- **Angular 19** – Frontend framework
+- **Signed Commits** – All commits must be signed using **GPG**
 
-To generate a new application, use:
+---
 
-```sh
-npx nx g @nx/angular:app demo
+## 📁 Project Structure
+
+```plaintext
+📂 ascenda-hotel
+ ├── 📂 public (Static files, e.g., favicon, assets)
+ ├── 📂 src
+ │   ├── 📂 app
+ │   │   ├── 📂 components
+ │   │   ├── 📂 services
+ │   │   ├── 📂 interfaces
+ │   │   ├── app.config.ts
+ │   │   └── app.routes
+ │   │   └── app.component.ts
+ │   ├── styles.scss
+ │   ├── main.ts
+ │   ├── index.html
+ ├── 📜 package.json
+ ├── 📜 package-lock.json
+ ├── 📜 README.md
+ ├── 📜 CONTRIBUTING.md
+ ├── 📜 .npmrc
+ ├── 📜 .prettierrc
+ ├── 📜 eslint.config.mjs
+ ├── 📜 jest.config.ts
+ ├── 📜 tailwind.config.js
+ ├── 📜 nx.json
+ ├── 📜 project.json
+ └── 📜 tsconfig.json
 ```
 
-To generate a new library, use:
+---
 
-```sh
-npx nx g @nx/angular:lib mylib
-```
+## 🏆 Contribution
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+- **Fork the repository** and create a new branch.
+- Follow the project’s [Coding Standards](./CONTRIBUTING.md).
+- Submit a **Pull Request** for review.
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+---
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## 📧 Contact & Support
 
-## Install Nx Console
+If you have any questions or issues, feel free to open an **issue** or reach out via email.
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/angular-standalone-tutorial?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+**✉️ Email**: [anlalayker@gmail.com](mailto:anlalayker@gmail.com)

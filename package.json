@@ -71,7 +71,7 @@
     "@angular/router": "~19.1.0",
     "@fontsource/work-sans": "latest",
     "@sao-components/core": "latest",
-    "@sao-icons/core": "latest",
+    "@sao-icons/font": "latest",
     "@sao-icons/types": "latest",
     "@sao-palette/core": "latest",
     "@sao-typography/core": "latest",

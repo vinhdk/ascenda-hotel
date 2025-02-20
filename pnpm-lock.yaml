@@ -40,10 +40,10 @@ importers:
         version: 5.1.1
       '@sao-components/core':
         specifier: latest
-        version: 0.0.8(@sao-icons/core@0.0.7)(@sao-palette/core@0.0.12)(@sao-typography/core@0.0.5(@fontsource/work-sans@5.1.1))
-      '@sao-icons/core':
+        version: 0.0.10(@sao-icons/font@0.0.9)(@sao-palette/core@0.0.12)(@sao-typography/core@0.0.5(@fontsource/work-sans@5.1.1))
+      '@sao-icons/font':
         specifier: latest
-        version: 0.0.7
+        version: 0.0.9
       '@sao-icons/types':
         specifier: latest
         version: 0.0.2
@@ -2365,15 +2365,15 @@ packages:
   '@rtsao/scc@1.1.0':
     resolution: {integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==}
 
-  '@sao-components/core@0.0.8':
-    resolution: {integrity: sha512-7gIUj2Yc/qB5PGGFIYHBGnzdovuoV0YoNbbVKxD2t0AeT7uSw1W/KzIl5OkuK3iK+4W4peiGRPgGDM5dYSbzeQ==}
+  '@sao-components/core@0.0.10':
+    resolution: {integrity: sha512-uDzzF8pAa8TWUWU3Zu5S6MSgHlb49VMGYeZDJsjhB5oMTy+yql+Sn2p7LkEb4F6X0SlIJ18M5ny3HrigzUUsTQ==}
     peerDependencies:
-      '@sao-icons/core': latest
+      '@sao-icons/font': latest
       '@sao-palette/core': latest
       '@sao-typography/core': latest
 
-  '@sao-icons/core@0.0.7':
-    resolution: {integrity: sha512-JV6VlUSBCVR4aUhw0oioJGAvDn7NGZZBuCibi/587DaAHgLakYLWYtkh1MDKWPQRNv3o2WHpA1jRYXnsEISXVw==}
+  '@sao-icons/font@0.0.9':
+    resolution: {integrity: sha512-pS2qWMyPwqczZvIENTt6U8BbLXG6VPv3xYX07Q2YqnaBCTuRgRJEo+EigvFpk/JCAYm2ZzLSdB7D1qB026jmrQ==}
 
   '@sao-icons/types@0.0.2':
     resolution: {integrity: sha512-Kp/dRH5rJPmc2poZzuiV6jGNrQ+xUpwaQLezbLHesK3gs9K/mAC7duooCKtZ1Q6ZwhHaJnGtvx6zIyhaj9jHHA==}
@@ -10936,13 +10936,13 @@ snapshots:
 
   '@rtsao/scc@1.1.0': {}
 
-  '@sao-components/core@0.0.8(@sao-icons/core@0.0.7)(@sao-palette/core@0.0.12)(@sao-typography/core@0.0.5(@fontsource/work-sans@5.1.1))':
+  '@sao-components/core@0.0.10(@sao-icons/font@0.0.9)(@sao-palette/core@0.0.12)(@sao-typography/core@0.0.5(@fontsource/work-sans@5.1.1))':
     dependencies:
-      '@sao-icons/core': 0.0.7
+      '@sao-icons/font': 0.0.9
       '@sao-palette/core': 0.0.12
       '@sao-typography/core': 0.0.5(@fontsource/work-sans@5.1.1)
 
-  '@sao-icons/core@0.0.7': {}
+  '@sao-icons/font@0.0.9': {}
 
   '@sao-icons/types@0.0.2':
     dependencies:
