@@ -44,4 +44,13 @@ export default [
       ],
     },
   },
+  {
+    files: ['**/*.html'],
+    rules: {
+      '@angular-eslint/template/label-has-associated-control': 'off',
+      '@angular-eslint/template/prefer-ngsrc': 'off',
+      '@angular-eslint/template/interactive-supports-focus': 'off',
+      '@angular-eslint/template/click-events-have-key-events': 'off',
+    },
+  }
 ];

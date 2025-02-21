@@ -114,10 +114,13 @@ We are using the following tools and configurations to ensure code quality and m
  ├── 📂 src
  │   ├── 📂 app
  │   │   ├── 📂 components
- │   │   ├── 📂 services
+ │   │   ├── 📂 enums
+ │   │   ├── 📂 injectors
  │   │   ├── 📂 interfaces
+ │   │   ├── 📂 pipes
+ │   │   ├── 📂 types
+ │   │   ├── 📂 utils
  │   │   ├── app.config.ts
- │   │   └── app.routes
  │   │   └── app.component.ts
  │   ├── styles.scss
  │   ├── main.ts

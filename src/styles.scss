@@ -3,7 +3,9 @@
 @use '@sao-typography/core/mixins' as typography;
 @use '@sao-palette/core/mixins' as palette;
 @use '@sao-icons/font';
-@use '@sao-components/core/forwards';
+@use '@sao-components/core/button';
+@use '@sao-components/core/lozenges';
+@use '@angular/cdk/overlay-prebuilt';
 
 :root {
   @include typography.sao-setup-typography();
@@ -12,4 +14,12 @@
 
 body {
   @apply bg-branding-background-900;
+}
+
+@media screen and (max-width: 768px) {
+  .cdk-overlay-pane:has(.sao-select) {
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+  }
 }
