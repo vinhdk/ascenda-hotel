@@ -23,6 +23,7 @@
   ],
   "scripts": {
     "start": "nx serve",
+    "test": "nx test",
     "prepare": "husky"
   },
   "engines": {
