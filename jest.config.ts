@@ -2,7 +2,8 @@ export default {
   displayName: 'ascenda-hotel',
   preset: './jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: './coverage/ascenda-hotel',
+  coverageDirectory: './coverage',
+  coverageReporters: ['json-summary', 'json', 'lcov', 'text', 'clover'],
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

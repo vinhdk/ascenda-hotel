@@ -38,12 +38,12 @@ jobs:
         run: pnpm run test --coverage
 
       - name: Upload Coverage to Coveralls
-        run: cat ./coverage/ascenda-hotel/lcov.info | pnpm exec coveralls
+        run: cat ./coverage/lcov.info | pnpm exec coveralls
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
 
       - name: Generate Coverage Badge
-        run: pnpm exec istanbul-badges-readme --output coverage/badge.svg
+        run: pnpm exec coverage-badges -o coverage/badge.svg
 
       - name: Commit Coverage Badge to `coverage-badge` Branch
         run: |

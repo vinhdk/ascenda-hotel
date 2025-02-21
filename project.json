@@ -81,7 +81,7 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectName}"],
+      "outputs": ["{workspaceRoot}/coverage"],
       "options": {
         "jestConfig": "jest.config.ts"
       }
