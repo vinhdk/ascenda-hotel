@@ -7,7 +7,7 @@ on:
 
 permissions:
   actions: read
-  contents: read
+  contents: write
 
 jobs:
   main:
@@ -38,15 +38,12 @@ jobs:
         run: pnpm run test
 
       - name: Upload Coverage to Coveralls
-        run: cat ./coverage/lcov.info | npx coveralls
+        run: cat ./coverage/lcov.info | pnpm exec coveralls
         env:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
 
       - name: Generate Coverage Badge
-        uses: jpb06/jest-badge-generator@main
-        with:
-          coverage-summary-path: coverage/coverage-summary.json
-          badge-file-path: coverage/badge.svg
+        run: pnpm exec istanbul-badges-readme --output coverage/badge.svg
 
       - name: Commit Coverage Badge to `coverage-badge` Branch
         run: |
