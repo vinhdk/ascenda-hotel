@@ -12,8 +12,11 @@ import { AppComponent } from './app.component';
 import {
   HOTEL_INJECTOR_TOKEN,
   injectHotel,
+  injectLoading,
+  LOADING_INJECTOR_TOKEN,
   provideCurrency,
   provideHotel,
+  provideLoading,
 } from './injectors';
 
 describe('AppComponent', () => {
@@ -28,6 +31,7 @@ describe('AppComponent', () => {
         provideHttpClientTesting(),
         provideHotel(),
         provideCurrency(),
+        provideLoading(),
       ],
     }).compileComponents();
 
@@ -89,6 +93,20 @@ describe('AppComponent', () => {
         fixture.detectChanges();
         const detail = fixture.debugElement.query(By.css('sao-hotel-detail'));
         expect(detail).toBeTruthy();
+      }
+    )
+  ));
+
+  it('should show loading when loading', waitForAsync(
+    inject(
+      [LOADING_INJECTOR_TOKEN],
+      async (loadingInjector: ReturnType<typeof injectLoading>) => {
+        jest.spyOn(loadingInjector, 'showing').mockReturnValue(true);
+        fixture.detectChanges();
+        await fixture.whenStable();
+        expect(
+          fixture.debugElement.query(By.css('ascenda-loading'))
+        ).toBeTruthy();
       }
     )
   ));

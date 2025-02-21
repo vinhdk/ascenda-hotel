@@ -12,6 +12,7 @@ import {
   injectHotel,
   provideHotel,
 } from './hotel.injector';
+import { provideLoading } from './loading.injector';
 
 describe('[Injector injectHotel]', () => {
   let httpMock: HttpTestingController;
@@ -24,6 +25,7 @@ describe('[Injector injectHotel]', () => {
         provideHttpClient(),
         provideHttpClientTesting(),
         provideHotel(),
+        provideLoading(),
       ],
     });
 

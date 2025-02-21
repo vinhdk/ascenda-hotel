@@ -15,6 +15,7 @@ import {
   injectHotel,
   provideHotel,
 } from './hotel.injector';
+import { provideLoading } from './loading.injector';
 
 describe('[Injector injectCurrency]', () => {
   beforeEach(() => {
@@ -24,6 +25,7 @@ describe('[Injector injectCurrency]', () => {
         provideHttpClientTesting(),
         provideHotel(),
         provideCurrency(),
+        provideLoading(),
       ],
     });
   });

@@ -28,8 +28,20 @@
   <a href="https://www.typescriptlang.org/">
     <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white&style=for-the-badge" alt="TypeScript" />
   </a>
+  <br />
   <img src="https://raw.githubusercontent.com/vinhdk/ascenda-hotel/coverage-badge/coverage/badge.svg" alt="Coveralls" />
 </p>
+
+## 🖼️ [Demo](https://vinhdk.github.io/ascenda-hotel)
+
+**⚠️ Warning: Viettel network is loading for forever when you try to access apis**
+
+<img src="./images/overview.png" alt="Preview" />
+
+## 💻 Platforms
+
+- ✅ **Mobile 📱**
+- ✅ **Desktop 💻**
 
 ## 📌 Features
 
@@ -38,6 +50,11 @@
 - ✅ **View Detailed Hotel Information** – View detailed information about each hotel.
 - ✅ **Taxes and Fees** – Able to view taxes and fees for each hotel.
 - ✅ **Fully Tested** – Ensures reliability with **Jest** unit tests.
+
+## ⛩️ How to use
+
+1. Click on the currency switcher to select the currency you want to use.
+2. Click on the hotel card to view the detailed information about the hotel.
 
 ---
 

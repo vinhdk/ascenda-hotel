@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { CurrencyPickerComponent } from './components';
+import { CurrencyPickerComponent, LoadingComponent } from './components';
 import { HotelDetailComponent, HotelListComponent } from './containers';
-import { injectCurrency } from './injectors';
+import { injectCurrency, injectLoading } from './injectors';
 import { AscendaCombinedHotel } from './types';
 
 @Component({
@@ -19,6 +19,9 @@ import { AscendaCombinedHotel } from './types';
           (closeEvent)="selected.set(null)" />
       }
     </main>
+    @if (loadingFactory.showing()) {
+      <ascenda-loading />
+    }
   `,
   styles: `
     :host {
@@ -63,9 +66,15 @@ import { AscendaCombinedHotel } from './types';
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CurrencyPickerComponent, HotelListComponent, HotelDetailComponent],
+  imports: [
+    CurrencyPickerComponent,
+    HotelListComponent,
+    HotelDetailComponent,
+    LoadingComponent,
+  ],
 })
 export class AppComponent {
   public readonly currencyInjector = injectCurrency();
+  public readonly loadingFactory = injectLoading();
   public readonly selected = signal<AscendaCombinedHotel | null>(null);
 }

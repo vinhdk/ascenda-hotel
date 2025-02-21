@@ -14,6 +14,7 @@ import {
   injectHotel,
   provideCurrency,
   provideHotel,
+  provideLoading,
 } from '../../injectors';
 import { IAscendaHotel, IAscendaMetadata } from '../../interfaces';
 import { HotelListComponent } from './hotel-list.component';
@@ -30,6 +31,7 @@ describe('HotelListComponent', () => {
         provideHttpClientTesting(),
         provideCurrency(),
         provideHotel(),
+        provideLoading(),
       ],
     }).compileComponents();
 

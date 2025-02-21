@@ -1,6 +1,6 @@
 import { provideHttpClient } from '@angular/common/http';
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideCurrency, provideHotel } from './injectors';
+import { provideCurrency, provideHotel, provideLoading } from './injectors';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -8,5 +8,6 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideHotel(),
     provideCurrency(),
+    provideLoading(),
   ],
 };
