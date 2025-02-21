@@ -11,7 +11,6 @@ import { of } from 'rxjs';
 import {
   CURRENCY_INJECTOR_TOKEN,
   HOTEL_INJECTOR_TOKEN,
-  injectCurrency,
   injectHotel,
   provideCurrency,
   provideHotel,
@@ -100,10 +99,7 @@ describe('HotelListComponent', () => {
   it('should show `Rates unavailable` when price is empty', waitForAsync(
     inject(
       [HOTEL_INJECTOR_TOKEN, CURRENCY_INJECTOR_TOKEN],
-      async (
-        hotelInjector: ReturnType<typeof injectHotel>,
-        currencyInjector: ReturnType<typeof injectCurrency>
-      ) => {
+      async (hotelInjector: ReturnType<typeof injectHotel>) => {
         const mockHotels: IAscendaHotel[] = [
           {
             id: 1,

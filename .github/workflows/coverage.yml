@@ -1,0 +1,61 @@
+name: Coverage
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+
+      # This enables task distribution via Nx Cloud
+      # Run this command as early as possible, before dependencies are installed
+      # Learn more at https://nx.dev/ci/reference/nx-cloud-cli#npx-nxcloud-startcirun
+      # Uncomment this line to enable task distribution
+      # - run: pnpm dlx nx-cloud start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="build"
+
+      # Cache node_modules
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - run: pnpm install --frozen-lockfile
+      - uses: nrwl/nx-set-shas@v4
+
+      - name: Run test coverage
+        run: pnpm run test
+
+      - name: Upload Coverage to Coveralls
+        run: cat ./coverage/lcov.info | npx coveralls
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+
+      - name: Generate Coverage Badge
+        uses: jpb06/jest-badge-generator@main
+        with:
+          coverage-summary-path: coverage/coverage-summary.json
+          badge-file-path: coverage/badge.svg
+
+      - name: Commit Coverage Badge to `coverage-badge` Branch
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b coverage-badge || git checkout coverage-badge
+          git pull origin coverage-badge || echo "Branch does not exist, creating it"
+          git add coverage/badge.svg
+          git commit -m "chore: update coverage badge" || echo "No changes to commit"
+          git push origin coverage-badge
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

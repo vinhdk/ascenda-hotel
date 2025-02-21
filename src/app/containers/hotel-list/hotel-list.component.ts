@@ -23,7 +23,7 @@ import { combineHotels } from '../../utils';
   imports: [HotelCardComponent],
   styles: `
     :host {
-      @apply grid h-full gap-10 overflow-y-auto p-10;
+      @apply grid h-full gap-6 overflow-y-auto p-6;
       grid-template-columns: repeat(auto-fit, minmax(312px, 1fr));
 
       @media screen and (max-width: 768px) {

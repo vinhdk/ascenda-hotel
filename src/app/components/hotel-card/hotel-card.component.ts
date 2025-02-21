@@ -36,8 +36,12 @@ import { HotelCardFeedbackComponent } from './hotel-card-feedback.component';
   imports: [HotelCardFeedbackComponent, HotelCardFeeComponent],
   styles: `
     :host {
-      @apply flex flex-col gap-3;
+      @apply flex flex-col gap-3 rounded-2xl p-4;
       min-width: 312px;
+
+      &:hover {
+        box-shadow: -2px 5px 31px 4px rgba(95, 105, 120, 1);
+      }
 
       > img {
         @apply aspect-video w-full rounded-2xl object-cover;
@@ -51,11 +55,11 @@ import { HotelCardFeedbackComponent } from './hotel-card-feedback.component';
             @apply flex w-full items-center justify-between gap-3;
 
             > strong {
-              @apply text-b2 font-semibold text-branding-foreground-50;
+              @apply flex-1 text-b2 font-semibold text-branding-foreground-50;
             }
 
             > span {
-              @apply text-b5 font-semibold text-branding-success-500;
+              @apply min-w-max text-b3 font-semibold text-branding-success-500;
             }
           }
 

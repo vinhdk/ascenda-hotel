@@ -28,7 +28,7 @@ import { calculateSaving, toListCompetitors } from '../../utils';
                   {{ competitor.price | ascendaCurrencySymbol }}
                 </span>
               } @else {
-                <span>Rates unavailable</span>
+                <span class="!text-branding-error-500">Rates unavailable</span>
               }
             </span>
             @if (competitor.saving > 0) {
@@ -90,7 +90,7 @@ import { calculateSaving, toListCompetitors } from '../../utils';
                 }
 
                 &:last-child {
-                  @apply text-b5 font-semibold text-branding-success-500;
+                  @apply text-b4 font-semibold text-branding-success-500;
                 }
               }
             }

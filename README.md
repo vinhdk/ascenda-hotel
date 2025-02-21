@@ -1,15 +1,42 @@
-<p style="text-align: center;">
+<h1 align="center">Ascenda Hotel Currencies & Price Competitiveness</h1>
+<p align="center">
   <img src="./public/favicon.svg" alt="Ascenda Logo" width="150">
 </p>
 
-# Ascenda Hotel Currencies & Price Competitiveness
-
-A modern **Angular 19** application designed to analyze and compare hotel prices across different currencies. Built with **standalone components, signals, and Jest for testing**, this project ensures high performance and scalability.
+<p align="center">
+  <a href="https://pnpm.io/">
+    <img src="https://img.shields.io/badge/pnpm-6D9F00?logo=pnpm&logoColor=white&style=for-the-badge" alt="pnpm" />
+  </a>
+  <a href="https://angular.io/">
+    <img src="https://img.shields.io/badge/Angular-DD0031?logo=angular&logoColor=white&style=for-the-badge" alt="Angular" />
+  </a>
+  <a href="https://tailwindcss.com/">
+    <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white&style=for-the-badge" alt="Tailwind CSS" />
+  </a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">
+    <img src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white&style=for-the-badge" alt="HTML5" />
+  </a>
+  <a href="https://sass-lang.com/">
+    <img src="https://img.shields.io/badge/SCSS-CC6699?logo=sass&logoColor=white&style=for-the-badge" alt="SCSS" />
+  </a>
+  <a href="https://jestjs.io/">
+    <img src="https://img.shields.io/badge/Jest-C21325?logo=jest&logoColor=white&style=for-the-badge" alt="Jest" />
+  </a>
+  <a href="https://nx.dev/">
+    <img src="https://img.shields.io/badge/Nx-143055?logo=nx&logoColor=white&style=for-the-badge" alt="Nx" />
+  </a>
+  <a href="https://www.typescriptlang.org/">
+    <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white&style=for-the-badge" alt="TypeScript" />
+  </a>
+  <img src="https://raw.githubusercontent.com/vinhdk/ascenda-hotel/coverage-badge/coverage/badge.svg" alt="Coveralls" />
+</p>
 
 ## 📌 Features
 
+- ✅ **Currency Switcher** – Switch between different currencies.
 - ✅ **Currency Comparison** – Compare hotel prices across multiple currencies.
-- ✅ **Price Analysis** – Get insights into price competitiveness with interactive visualizations.
+- ✅ **View Detailed Hotel Information** – View detailed information about each hotel.
+- ✅ **Taxes and Fees** – Able to view taxes and fees for each hotel.
 - ✅ **Fully Tested** – Ensures reliability with **Jest** unit tests.
 
 ---
@@ -56,9 +83,6 @@ This repository **requires SSH for cloning** and **signed commits using GPG**.
    ```sh
    pnpm install
    ```
-
-3. **Set Up Environment Variables** (if needed)  
-   Create a `.env` file in the root directory and configure required API keys and settings.
 
 ---
 
@@ -114,6 +138,7 @@ We are using the following tools and configurations to ensure code quality and m
  ├── 📂 src
  │   ├── 📂 app
  │   │   ├── 📂 components
+ │   │   ├── 📂 containers
  │   │   ├── 📂 enums
  │   │   ├── 📂 injectors
  │   │   ├── 📂 interfaces

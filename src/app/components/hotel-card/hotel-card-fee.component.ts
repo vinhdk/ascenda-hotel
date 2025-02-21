@@ -23,7 +23,7 @@ import { TaxesAndFeesComponent } from '../taxes-and-fees/taxes-and-fees.componen
             }}
           </span>
         } @else {
-          <span>Rates unavailable</span>
+          <span class="!text-branding-error-500">Rates unavailable</span>
         }
       </li>
       @if (instance().taxes_and_fees; as taxes_and_fees) {
