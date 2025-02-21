@@ -2,7 +2,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  effect,
   model,
+  untracked,
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { HotelCardComponent } from '../../components';
@@ -45,4 +47,21 @@ export class HotelListComponent {
     const metadata = this.currencyInjector.metadataSignal();
     return combineHotels(hotels, metadata);
   });
+
+  public constructor() {
+    effect(() => {
+      const hotels = this.hotelCombinedSignal();
+      const selected = untracked(() => this.selected());
+      this.updateSelected(hotels, selected);
+    });
+  }
+
+  public updateSelected(
+    hotels: AscendaCombinedHotel[],
+    selected: AscendaCombinedHotel | null
+  ): void {
+    this.selected.set(
+      selected ? (hotels.find(hotel => hotel.id === selected.id) ?? null) : null
+    );
+  }
 }
