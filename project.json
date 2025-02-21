@@ -83,8 +83,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectName}"],
       "options": {
-        "jestConfig": "jest.config.ts",
-        "codeCoverage": true
+        "jestConfig": "jest.config.ts"
       }
     },
     "serve-static": {

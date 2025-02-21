@@ -35,7 +35,7 @@ jobs:
       - uses: nrwl/nx-set-shas@v4
 
       - name: Run test coverage
-        run: pnpm run test
+        run: pnpm run test --coverage
 
       - name: Upload Coverage to Coveralls
         run: cat ./coverage/ascenda-hotel/lcov.info | pnpm exec coveralls
