@@ -34,9 +34,12 @@
 
 ## 🖼️ [Demo](https://vinhdk.github.io/ascenda-hotel)
 
-**⚠️ Warning: Viettel network is loading for forever when you try to access apis**
+**⚠️ Warning: Viettel network is loading for forever when you try to access apis. Consider using a VPN to avoid this issue.**
 
-<img src="./images/overview.png" alt="Preview" />
+<img src="./resources/overview.png" alt="Preview" />
+<br />
+<br />
+<img src="./resources/overview.gif" alt="Preview" />
 
 ## 💻 Platforms
 
