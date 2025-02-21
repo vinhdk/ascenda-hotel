@@ -51,8 +51,8 @@ describe('TaxesAndFeesComponent', () => {
     });
     fixture.detectChanges();
     const ul = fixture.debugElement.query(By.css('ul'));
-    expect(ul.nativeElement.innerHTML).toContain('Tax: $ 10');
-    expect(ul.nativeElement.innerHTML).toContain('Hotel Fees: $ 5');
+    expect(ul.nativeElement.textContent).toContain('Tax: $ 10');
+    expect(ul.nativeElement.textContent).toContain('Hotel Fees: $ 5');
   });
 
   it('should show no tax and fees', () => {
@@ -62,8 +62,8 @@ describe('TaxesAndFeesComponent', () => {
     });
     fixture.detectChanges();
     const ul = fixture.debugElement.query(By.css('ul'));
-    expect(ul.nativeElement.innerHTML).not.toContain('Tax');
-    expect(ul.nativeElement.innerHTML).not.toContain('Hotel Fees');
+    expect(ul.nativeElement.textContent).not.toContain('Tax');
+    expect(ul.nativeElement.textContent).not.toContain('Hotel Fees');
   });
 
   it('should show only tax when no hotel_fees', () => {
@@ -73,8 +73,8 @@ describe('TaxesAndFeesComponent', () => {
     });
     fixture.detectChanges();
     const ul = fixture.debugElement.query(By.css('ul'));
-    expect(ul.nativeElement.innerHTML).toContain('Tax: $ 10');
-    expect(ul.nativeElement.innerHTML).not.toContain('Hotel Fees');
+    expect(ul.nativeElement.textContent).toContain('Tax: $ 10');
+    expect(ul.nativeElement.textContent).not.toContain('Hotel Fees');
   });
 
   it('should show only hotel_fees when no tax', () => {
@@ -84,7 +84,7 @@ describe('TaxesAndFeesComponent', () => {
     });
     fixture.detectChanges();
     const ul = fixture.debugElement.query(By.css('ul'));
-    expect(ul.nativeElement.innerHTML).not.toContain('Tax');
-    expect(ul.nativeElement.innerHTML).toContain('Hotel Fees: $ 5');
+    expect(ul.nativeElement.textContent).not.toContain('Tax');
+    expect(ul.nativeElement.textContent).toContain('Hotel Fees: $ 5');
   });
 });

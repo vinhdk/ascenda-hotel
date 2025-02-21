@@ -47,4 +47,10 @@ describe('CurrencySymbolPipe', () => {
     localStorage.setItem(AscendaKeys.STORAGE, 'IDR');
     expect(pipe.transform(100)).toBe('Rp 100');
   });
+
+  it('should return default symbol in environment when currency is not found', () => {
+    const pipe = new CurrencySymbolPipe();
+    localStorage.setItem(AscendaKeys.STORAGE, 'ABC');
+    expect(pipe.transform(100)).toBe('$ 100');
+  });
 });

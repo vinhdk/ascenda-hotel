@@ -145,10 +145,10 @@ describe('HotelListComponent', () => {
           By.css('sao-hotel-card')
         );
         expect(hotelCards.length).toBe(2);
-        expect(hotelCards[1].nativeElement.innerHTML).not.toContain(
+        expect(hotelCards[1].nativeElement.textContent).not.toContain(
           'Rates unavailable'
         );
-        expect(hotelCards[0].nativeElement.innerHTML).toContain(
+        expect(hotelCards[0].nativeElement.textContent).toContain(
           'Rates unavailable'
         );
       }
