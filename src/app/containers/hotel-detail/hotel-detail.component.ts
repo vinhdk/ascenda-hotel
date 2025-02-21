@@ -54,7 +54,7 @@ import { HotelDetailFeedbackComponent } from './hotel-detail-feedback.component'
       }
 
       @media screen and (max-width: 768px) {
-        @apply fixed left-0 top-0 z-10 h-screen w-screen;
+        @apply fixed left-0 top-0 z-10 h-dvh w-screen;
       }
 
       > header {

@@ -46,12 +46,13 @@ import { currencies } from '../../utils';
       }
 
       @media screen and (max-width: 768px) {
-        @apply fixed left-0 top-0 h-screen w-screen;
+        @apply fixed left-0 top-0 h-dvh w-screen;
 
         .sao-select {
-          @apply absolute bottom-0 left-0 w-full;
+          @apply absolute left-0 w-full;
           border-bottom-left-radius: 0;
           border-bottom-right-radius: 0;
+          bottom: env(safe-area-inset-bottom, 0);
         }
       }
 

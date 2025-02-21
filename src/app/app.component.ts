@@ -38,7 +38,7 @@ import { AscendaCombinedHotel } from './types';
 
       > main {
         @apply flex w-full;
-        height: calc(100vh - 64px);
+        height: calc(100dvh - 64px);
 
         @media screen and (min-width: 768px) {
           &:has(ascenda-hotel-detail) {
