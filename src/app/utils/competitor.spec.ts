@@ -39,11 +39,11 @@ describe('[Function toListCompetitors]', () => {
 
 describe('[Function calculateSaving]', () => {
   it('Happy case', () => {
-    expect(calculateSaving(123, 100)).toBe(18.7);
+    expect(calculateSaving(100, 123)).toBe(18.7);
   });
 
   it('Negative case', () => {
-    expect(calculateSaving(100, 123)).toBe(0);
+    expect(calculateSaving(123, 100)).toBe(0);
   });
 
   it('Zero case', () => {

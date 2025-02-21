@@ -4,6 +4,7 @@ import {
   IAscendaMetadata,
 } from '../interfaces';
 import { AscendaCombinedHotel } from '../types';
+import { roundCurrency } from './currency';
 
 /**
  * @description Transform competitors to list
@@ -48,7 +49,11 @@ export const calculateSaving = (
   competitor: number
 ): number => {
   const saving = Number(
-    (((original - competitor) / original) * 100).toFixed(1)
+    (
+      ((roundCurrency(competitor) - roundCurrency(original)) /
+        roundCurrency(competitor)) *
+      100
+    ).toFixed(1)
   );
 
   return saving > 0 ? saving : 0;

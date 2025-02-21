@@ -34,9 +34,7 @@ import { HotelDetailFeedbackComponent } from './hotel-detail-feedback.component'
       <strong>Address:</strong>
       {{ instance().address }}
     </p>
-    @if (instance().competitors) {
-      <ascenda-hotel-detail-competitors [instance]="instance()" />
-    }
+    <ascenda-hotel-detail-competitors [instance]="instance()" />
     <p class="description" [innerHTML]="instance().description"></p>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

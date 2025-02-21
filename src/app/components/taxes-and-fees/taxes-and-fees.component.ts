@@ -30,7 +30,7 @@ import { CurrencySymbolPipe } from '../../pipes';
 
       > ul {
         @apply flex w-full flex-wrap gap-2;
-        zoom: 0.75;
+        zoom: 0.8;
 
         > li {
           @apply contents;

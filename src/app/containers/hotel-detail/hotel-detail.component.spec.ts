@@ -32,17 +32,6 @@ describe('HotelDetailComponent', () => {
     ).toBeTruthy();
   });
 
-  it('should show competitors when competitors is not null', async () => {
-    fixture.componentRef.setInput('instance', {
-      competitors: {},
-    });
-    fixture.detectChanges();
-    await fixture.whenStable();
-    expect(
-      fixture.debugElement.query(By.css('ascenda-hotel-detail-competitors'))
-    ).toBeTruthy();
-  });
-
   it('should emit closeEvent when close button is clicked', async () => {
     const closeEvent = jest.spyOn(component.closeEvent, 'emit');
     const closeButton = fixture.debugElement.query(By.css('header > button'));
