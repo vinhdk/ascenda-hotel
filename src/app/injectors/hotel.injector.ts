@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, InjectionToken, Provider } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { map, Observable } from 'rxjs';
+import { delay, finalize, map, Observable, timeout } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { IAscendaHotel, IAscendaMetadata } from '../interfaces';
 import { sanitizeHTML } from '../utils';
+import { injectLoading, LOADING_INJECTOR_TOKEN } from './loading.injector';
 
 export interface IHotelInjector {
   /**
@@ -52,10 +53,14 @@ export const provideHotel = (): Provider => ({
     const baseUrl = `${environment.endpoint}/hotels/tokyo`;
     const httpClient = inject(HttpClient);
     const domSanitizer = inject(DomSanitizer);
+    const loadingFactory = injectLoading();
 
     return {
       getAllAsync: (): Observable<IAscendaHotel[]> => {
+        loadingFactory.start();
         return httpClient.get<IAscendaHotel[]>(`${baseUrl}`).pipe(
+          delay(1000),
+          timeout(3000),
           map(hotels =>
             hotels.map(hotel => ({
               ...hotel,
@@ -64,17 +69,25 @@ export const provideHotel = (): Provider => ({
                 sanitizeHTML(`${hotel.description}`)
               ),
             }))
-          )
+          ),
+          finalize(() => loadingFactory.stop())
         );
       },
       getMetadataAsync: (
         currency: string = environment.currency
       ): Observable<IAscendaMetadata[]> => {
-        return httpClient.get<IAscendaMetadata[]>(`${baseUrl}/1/${currency}`);
+        loadingFactory.start();
+        return httpClient
+          .get<IAscendaMetadata[]>(`${baseUrl}/1/${currency}`)
+          .pipe(
+            delay(1000),
+            timeout(3000),
+            finalize(() => loadingFactory.stop())
+          );
       },
     };
   },
-  deps: [HttpClient, DomSanitizer],
+  deps: [HttpClient, DomSanitizer, LOADING_INJECTOR_TOKEN],
 });
 
 export const injectHotel = () => inject(HOTEL_INJECTOR_TOKEN);
