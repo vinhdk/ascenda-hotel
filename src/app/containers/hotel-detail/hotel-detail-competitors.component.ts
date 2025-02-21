@@ -15,17 +15,23 @@ import { calculateSaving, toListCompetitors } from '../../utils';
       @for (competitor of competitors(); track competitor.name) {
         <li>
           <div>
-            <span>{{ competitor.name.charAt(0) }}</span>
+            <span>
+              @if (competitor.isOriginal) {
+                <img [src]="'favicon.svg'" alt="Ascenda Logo" />
+              } @else {
+                {{ competitor.name.charAt(0) }}
+              }
+            </span>
             <span>{{ competitor.name }}</span>
           </div>
           <div>
             <span [class.unavailable]="unavailable()">
               @if (!unavailable()) {
                 <span [class.opacity-0]="competitor.saving === 0">
-                  {{ instance().price | ascendaCurrencySymbol }}
+                  {{ competitor.price | ascendaCurrencySymbol }}
                 </span>
                 <span>
-                  {{ competitor.price | ascendaCurrencySymbol }}
+                  {{ instance().price | ascendaCurrencySymbol }}
                 </span>
               } @else {
                 <span class="!text-branding-error-500">Rates unavailable</span>
@@ -57,6 +63,10 @@ import { calculateSaving, toListCompetitors } from '../../utils';
               > span {
                 &:first-child {
                   @apply flex h-[22px] w-[22px] items-center justify-center rounded-full bg-branding-foreground-50 text-b5 font-bold uppercase text-branding-background-900;
+
+                  > img {
+                    @apply h-3 w-3;
+                  }
                 }
 
                 &:last-child {
@@ -105,11 +115,18 @@ export class HotelDetailCompetitorsComponent {
   public readonly instance = input.required<AscendaCombinedHotel>();
   public readonly competitors = computed(() =>
     toListCompetitors(this.instance().competitors)
+      .concat([
+        {
+          name: 'Ascenda',
+          price: this.instance().price,
+        },
+      ])
       .map(competitor => ({
         ...competitor,
         saving: calculateSaving(this.instance().price, competitor.price),
+        isOriginal: competitor.name === 'Ascenda',
       }))
-      .sort((a, b) => b.saving - a.saving)
+      .sort((a, b) => b.price - a.price)
   );
   public readonly unavailable = computed(() => this.instance().price == null);
 }

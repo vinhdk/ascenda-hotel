@@ -15,12 +15,10 @@ import { TaxesAndFeesComponent } from '../taxes-and-fees/taxes-and-fees.componen
       <li [class.unavailable]="unavailable()">
         @if (!unavailable()) {
           <span [class.opacity-0]="saving() === 0">
-            {{ instance().price | ascendaCurrencySymbol }}
+            {{ max() | ascendaCurrencySymbol }}
           </span>
           <span>
-            {{
-              (saving() > 0 ? min() : instance().price) | ascendaCurrencySymbol
-            }}
+            {{ instance().price | ascendaCurrencySymbol }}
           </span>
         } @else {
           <span class="!text-branding-error-500">Rates unavailable</span>
@@ -47,6 +45,7 @@ import { TaxesAndFeesComponent } from '../taxes-and-fees/taxes-and-fees.componen
         > li {
           &:first-child {
             @apply flex items-center gap-1.5;
+
             &.unavailable {
               > span {
                 @apply text-b5 text-branding-foreground-50;
@@ -77,6 +76,6 @@ import { TaxesAndFeesComponent } from '../taxes-and-fees/taxes-and-fees.componen
 export class HotelCardFeeComponent {
   public readonly instance = input.required<AscendaCombinedHotel>();
   public readonly saving = input.required<number>();
-  public readonly min = input.required<number>();
+  public readonly max = input.required<number>();
   public readonly unavailable = computed(() => this.instance().price == null);
 }

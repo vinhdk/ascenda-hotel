@@ -15,7 +15,7 @@ describe('HotelCardFeeComponent', () => {
     component = fixture.componentInstance;
     fixture.componentRef.setInput('instance', {});
     fixture.componentRef.setInput('saving', 0);
-    fixture.componentRef.setInput('min', 0);
+    fixture.componentRef.setInput('max', 0);
     fixture.detectChanges();
   });
 

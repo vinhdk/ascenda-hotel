@@ -33,7 +33,7 @@ describe('HotelDetailCompetitorsComponent', () => {
 
     expect(component.unavailable()).toBe(true);
     const items = fixture.debugElement.queryAll(By.css('ul > li'));
-    expect(items.length).toBe(2);
+    expect(items.length).toBe(3);
     items.forEach(item => {
       expect(item.nativeElement.textContent).toContain('Rates unavailable');
     });
@@ -52,9 +52,10 @@ describe('HotelDetailCompetitorsComponent', () => {
 
     expect(component.unavailable()).toBe(false);
     const items = fixture.debugElement.queryAll(By.css('ul > li'));
-    expect(items.length).toBe(2);
+    expect(items.length).toBe(3);
     items.forEach(item => {
       expect(item.nativeElement.textContent).not.toContain('Rates unavailable');
     });
+    expect(items[2].nativeElement.querySelector('img')).toBeTruthy();
   });
 });

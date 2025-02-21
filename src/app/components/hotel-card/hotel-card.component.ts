@@ -5,6 +5,7 @@ import {
   input,
 } from '@angular/core';
 import { AscendaCombinedHotel } from '../../types';
+import { calculateSaving } from '../../utils';
 import { HotelCardFeeComponent } from './hotel-card-fee.component';
 import { HotelCardFeedbackComponent } from './hotel-card-feedback.component';
 
@@ -24,7 +25,7 @@ import { HotelCardFeedbackComponent } from './hotel-card-feedback.component';
         <ascenda-hotel-card-fee
           [instance]="instance()"
           [saving]="saving()"
-          [min]="min()" />
+          [max]="max()" />
       </div>
     </header>
     <footer>
@@ -87,21 +88,14 @@ import { HotelCardFeedbackComponent } from './hotel-card-feedback.component';
 })
 export class HotelCardComponent {
   public readonly instance = input.required<AscendaCombinedHotel>();
-  public readonly min = computed(() =>
-    Math.min(...Object.values(this.instance().competitors ?? {}))
+  public readonly max = computed(() =>
+    Math.max(...Object.values(this.instance().competitors ?? {}))
   );
   public readonly saving = computed(() => {
-    if (this.min() === 0) {
+    if (this.max() === 0) {
       return 0;
     }
 
-    const saving = Number(
-      (
-        ((this.instance().price - this.min()) / this.instance().price) *
-        100
-      ).toFixed(1)
-    );
-
-    return saving > 0 ? saving : 0;
+    return calculateSaving(this.instance().price, this.max());
   });
 }

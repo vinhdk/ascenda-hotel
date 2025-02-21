@@ -21,11 +21,11 @@ describe('HotelCardComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should show saving when competitors price is cheaper than instance price', async () => {
+  it('should show saving when competitors price is expensive than instance price', async () => {
     fixture.componentRef.setInput('instance', {
       price: 100,
       competitors: {
-        'Booking.com': 99,
+        'Booking.com': 101,
       },
     });
     fixture.detectChanges();
@@ -37,11 +37,11 @@ describe('HotelCardComponent', () => {
     );
   });
 
-  it('should not show saving when competitors price is not cheaper than instance price', async () => {
+  it('should not show saving when competitors price is cheaper than instance price', async () => {
     fixture.componentRef.setInput('instance', {
       price: 100,
       competitors: {
-        'Booking.com': 101,
+        'Booking.com': 99,
       },
     });
     fixture.detectChanges();
@@ -61,7 +61,7 @@ describe('HotelCardComponent', () => {
     expect(span).toBeFalsy();
   });
 
-  it('should not show saving when min is 0', async () => {
+  it('should not show saving when max is 0', async () => {
     fixture.componentRef.setInput('instance', {
       price: 100,
       competitors: {
