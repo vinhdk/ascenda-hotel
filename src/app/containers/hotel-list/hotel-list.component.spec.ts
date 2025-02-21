@@ -17,6 +17,7 @@ import {
   provideLoading,
 } from '../../injectors';
 import { IAscendaHotel, IAscendaMetadata } from '../../interfaces';
+import { AscendaCombinedHotel } from '../../types';
 import { HotelListComponent } from './hotel-list.component';
 
 describe('HotelListComponent', () => {
@@ -194,4 +195,68 @@ describe('HotelListComponent', () => {
       }
     )
   ));
+
+  describe('should set the selected based on hotels', () => {
+    it('when selected already has data and hotels containing data', () => {
+      const mockHotels = [
+        {
+          id: 1,
+          name: 'Hotel A',
+          description: '<p>Hello World</p>',
+          rating: 5,
+          stars: 4,
+          address: 'Address 1',
+          photo: 'photo.jpg',
+        },
+        {
+          id: 2,
+          name: 'Hotel B',
+          description: '<p>Hello World</p>',
+          rating: 5,
+          stars: 4,
+          address: 'Address 2',
+          photo: 'photo.jpg',
+        },
+      ] as AscendaCombinedHotel[];
+      component.selected.set({
+        id: 1,
+      } as AscendaCombinedHotel);
+      component.updateSelected(mockHotels, component.selected());
+      expect(component.selected()).toEqual(mockHotels[0]);
+    });
+
+    it('when selected already has data and hotels not containing data', () => {
+      const mockHotels = [
+        {
+          id: 1,
+          name: 'Hotel A',
+          description: '<p>Hello World</p>',
+          rating: 5,
+          stars: 4,
+          address: 'Address 1',
+          photo: 'photo.jpg',
+        },
+        {
+          id: 2,
+          name: 'Hotel B',
+          description: '<p>Hello World</p>',
+          rating: 5,
+          stars: 4,
+          address: 'Address 2',
+          photo: 'photo.jpg',
+        },
+      ] as AscendaCombinedHotel[];
+      component.selected.set({
+        id: 3,
+      } as AscendaCombinedHotel);
+      component.updateSelected(mockHotels, component.selected());
+      expect(component.selected()).toEqual(null);
+    });
+
+    it('should set selected to null when hotels list is empty', () => {
+      component.selected.set({ id: 1 } as AscendaCombinedHotel);
+      component.updateSelected([], component.selected());
+      expect(component.selected()).toEqual(null);
+    });
+  });
 });
