@@ -39,6 +39,14 @@
 <img src="./resources/overview.png" alt="Preview" />
 <br />
 <br />
+<p align="center">
+  <img src="resources/Galaxy-Tab-S7.png" alt="Galaxy Tab S7" width="20%" />
+  <img src="resources/iPad%20Pro%20Ascenda%20Hotel.png" alt="iPad Pro Ascenda Hotel" width="20%" />
+  <img src="resources/iPhone%2013%20Pro%20Max%20Ascenda%20Hotel.png" alt="iPhone 13 Pro Max Ascenda Hotel" width="20%" />
+  <img src="resources/Samsung%20Galaxy%20S20%20Ascenda%20Hotel.png" alt="Samsung Galaxy S20 Ascenda Hotel" width="20%" />
+</p>
+<br />
+<br />
 <img src="./resources/overview.gif" alt="Preview" />
 
 ## 💻 Platforms
