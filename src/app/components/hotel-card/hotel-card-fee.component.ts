@@ -55,7 +55,7 @@ import { TaxesAndFeesComponent } from '../taxes-and-fees/taxes-and-fees.componen
             &:not(.unavailable) {
               > span {
                 &:first-child {
-                  @apply text-b4 text-branding-foreground-50 line-through;
+                  @apply text-b4 text-branding-error-500 line-through;
                 }
 
                 &:last-child {

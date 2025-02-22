@@ -13,7 +13,7 @@ import { calculateSaving, toListCompetitors } from '../../utils';
   template: `
     <ul>
       @for (competitor of competitors(); track competitor.name) {
-        <li>
+        <li [class.original]="competitor.isOriginal">
           <div>
             <span>
               @if (competitor.isOriginal) {
@@ -56,13 +56,23 @@ import { calculateSaving, toListCompetitors } from '../../utils';
         > li {
           @apply flex w-full items-center justify-between rounded-xl bg-branding-background-800 bg-opacity-50 p-4;
 
+          &.original {
+            --color: var(--sao-palette-color-branding-success-500);
+          }
+
+          &:not(.original) {
+            --color: var(--sao-palette-color-branding-foreground-50);
+          }
+
           > div {
             &:first-child {
               @apply flex items-center gap-2;
 
               > span {
                 &:first-child {
-                  @apply flex h-[22px] w-[22px] items-center justify-center rounded-full bg-branding-foreground-50 text-b5 font-bold uppercase text-branding-background-900;
+                  @apply flex h-[22px] w-[22px] items-center justify-center rounded-full text-b5 font-bold uppercase text-branding-background-900;
+
+                  background-color: var(--color);
 
                   > img {
                     @apply h-3 w-3;
@@ -70,7 +80,8 @@ import { calculateSaving, toListCompetitors } from '../../utils';
                 }
 
                 &:last-child {
-                  @apply text-b4 font-medium capitalize text-branding-foreground-50;
+                  @apply text-b4 font-medium capitalize;
+                  color: var(--color);
                 }
               }
             }
@@ -80,20 +91,22 @@ import { calculateSaving, toListCompetitors } from '../../utils';
               > span {
                 &:first-child {
                   @apply flex items-center gap-1.5;
+
                   &.unavailable {
                     > span {
-                      @apply text-b5 text-branding-foreground-50;
+                      @apply text-b5 text-branding-error-500;
                     }
                   }
 
                   &:not(.unavailable) {
                     > span {
                       &:first-child {
-                        @apply text-b4 text-branding-foreground-50 line-through;
+                        @apply text-b4 text-branding-error-500 line-through;
                       }
 
                       &:last-child {
-                        @apply text-b2 font-semibold text-branding-foreground-50;
+                        @apply text-b2 font-semibold;
+                        color: var(--color);
                       }
                     }
                   }
